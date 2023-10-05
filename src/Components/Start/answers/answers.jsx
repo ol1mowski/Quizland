@@ -31,7 +31,11 @@ const Answers = (props) => {
         button.current.innerText = 'Finish';
       }
       if (currentIndex === 9) {
-        navigate('/Quizland/summary');
+        window.history.pushState(null, '', '/Quizland/summary');
+    
+        // Wymuszenie ponownego renderowania komponentu
+        // Jeśli korzystasz z funkcji komponentu funkcyjnego
+        window.dispatchEvent(new Event('popstate'));
       }
       else if (currentIndex < props.resp.length - 1) { // Dodane sprawdzenie, czy currentIndex jest mniejszy niż długość tablicy props.resp
         setCurrentIndex((prev) => prev + 1);
