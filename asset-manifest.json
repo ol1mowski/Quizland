@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Quizland/static/css/main.96e4c476.css",
-    "main.js": "/Quizland/static/js/main.a80ea78a.js",
+    "main.js": "/Quizland/static/js/main.20a9f043.js",
     "static/js/787.83904489.chunk.js": "/Quizland/static/js/787.83904489.chunk.js",
     "static/media/background.jpg": "/Quizland/static/media/background.c6757f7019f2fabd9d2e.jpg",
     "index.html": "/Quizland/index.html",
     "main.96e4c476.css.map": "/Quizland/static/css/main.96e4c476.css.map",
-    "main.a80ea78a.js.map": "/Quizland/static/js/main.a80ea78a.js.map",
+    "main.20a9f043.js.map": "/Quizland/static/js/main.20a9f043.js.map",
     "787.83904489.chunk.js.map": "/Quizland/static/js/787.83904489.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.96e4c476.css",
-    "static/js/main.a80ea78a.js"
+    "static/js/main.20a9f043.js"
   ]
 }
