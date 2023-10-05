@@ -2,8 +2,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './answer.module.css';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { increment } from '../../../store/counterState';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment } from '../../../store/counterState';
 
 const Answers = (props) => {
   // local state 
@@ -11,6 +11,8 @@ const Answers = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentAnswers, setCurrentAnswers] = useState('');
+  const [odp, setOdp] = useState('');
+  const [correctOdp, setCorrectOdp] = useState([]);
 
   // refs
   const button = useRef(null);
@@ -19,8 +21,9 @@ const Answers = (props) => {
   const navigate = useNavigate()
 
 
-  // const counter = useSelector((state) => state.counter.counter)
-  // const dispatch = useDispatch()
+  const counter = useSelector((state) => state.counter.counter)
+  const dispatch = useDispatch()
+
 
   useEffect(() => {
     const indexIncrement = () => {
@@ -30,16 +33,24 @@ const Answers = (props) => {
       if (currentIndex === 9) {
         navigate('/summary');
       }
-      else if (currentIndex <= 9) {
+      else if (currentIndex < props.resp.length - 1) { // Dodane sprawdzenie, czy currentIndex jest mniejszy niż długość tablicy props.resp
         setCurrentIndex((prev) => prev + 1);
       }
       const radioInputs = document.querySelectorAll('.form-check input[type="radio"]');
-
+    
       // Odznacz wszystkie zaznaczone inputy
       radioInputs.forEach((input) => {
         input.checked = false;
       });
+      
+      if (odp === correctOdp) {
+        dispatch(increment());
+      }
+    
+      console.log(counter);
+      
     };
+    
 
     const buttonElement = button.current;
 
@@ -52,30 +63,42 @@ const Answers = (props) => {
         buttonElement.removeEventListener('click', indexIncrement);
       }
     };
-  }, [currentIndex, button, navigate, setCurrentIndex]);
+  }, [currentIndex, button, navigate, setCurrentIndex, odp]);
 
 
 
+  const [answerA, setAnswerA] = useState('');
+  const [answerB, setAnswerB] = useState('');
+  const [answerC, setAnswerC] = useState('');
+  const [answerD, setAnswerD] = useState('');
+  
   useEffect(() => {
     const response = props.resp;
     if (response && response.length > 0 && response[0].category) {
       setCurrentCategory(response[0].category);
-      console.log(response);
       setCurrentQuestion(response[currentIndex].question);
+      setCorrectOdp(response[currentIndex].correct_answer)
       const tab = []
       tab.push(response[currentIndex].correct_answer)
       const other = response[currentIndex].incorrect_answers;
       tab.push(...other);
       setCurrentAnswers(tab);
-
-
-
+  
+      // Przy każdej zmianie odpowiedzi, generuj nowe unikalne indeksy
+      const uniqueRandomIndices = getRandomUniqueIndices(4, 4);
+  
+      // Przypisz odpowiedzi do odpowiednich zmiennych za pomocą setState
+      setAnswerA(tab[uniqueRandomIndices[0]]);
+      setAnswerB(tab[uniqueRandomIndices[1]]);
+      setAnswerC(tab[uniqueRandomIndices[2]]);
+      setAnswerD(tab[uniqueRandomIndices[3]]);
     } else {
       console.log('Category does not exist.');
     }
-  }, [props.resp, currentQuestion, currentIndex]);
+  }, [props.resp, currentQuestion, currentIndex, correctOdp]);
 
-
+  console.log('poprawna: ', correctOdp);
+  
 
 
 
@@ -83,30 +106,22 @@ const Answers = (props) => {
     if (count > max) {
       throw new Error('Count cannot be greater than max');
     }
-
+  
     const uniqueIndices = new Set();
-
+  
     while (uniqueIndices.size < count) {
       const newIndex = Math.floor(Math.random() * max);
       uniqueIndices.add(newIndex);
     }
-
+  
     return Array.from(uniqueIndices);
   }
-
-  const uniqueRandomIndices = getRandomUniqueIndices(4, 4);
-
-
-
-  let answerA = currentAnswers[uniqueRandomIndices[0]]
-  let answerB = currentAnswers[uniqueRandomIndices[1]]
-  let answerC = currentAnswers[uniqueRandomIndices[2]]
-  let answerD = currentAnswers[uniqueRandomIndices[3]]
-
+  
 
   const inpSelect = (e) => {
-    console.log(e.target.value);
+    setOdp(e.target.value)
   }
+
 
 
   return (
@@ -123,7 +138,8 @@ const Answers = (props) => {
             className="form-check-input"
             type="radio"
             name="flexRadioDefault"
-            id={`flexRadioDefault`}
+            id={`flexRadioDefault${answerA}`} // unikalny identyfikator dla każdego inputa
+
           />
           <label className="form-check-label" htmlFor={`flexRadioDefault`}>
             {answerA}
@@ -138,7 +154,8 @@ const Answers = (props) => {
             className="form-check-input"
             type="radio"
             name="flexRadioDefault"
-            id={`flexRadioDefault`}
+            id={`flexRadioDefault${answerB}`} // unikalny identyfikator dla każdego inputa
+
           />
           <label className="form-check-label" htmlFor={`flexRadioDefault`}>
             {answerB}
@@ -153,7 +170,8 @@ const Answers = (props) => {
             className="form-check-input"
             type="radio"
             name="flexRadioDefault"
-            id={`flexRadioDefault`}
+            id={`flexRadioDefault${answerC}`} // unikalny identyfikator dla każdego inputa
+
           />
           <label className="form-check-label" htmlFor={`flexRadioDefault`}>
             {answerC}
@@ -169,7 +187,8 @@ const Answers = (props) => {
               className="form-check-input"
               type="radio"
               name="flexRadioDefault"
-              id={`flexRadioDefault`}
+              id={`flexRadioDefault${answerD}`} // unikalny identyfikator dla każdego inputa
+
             />
             <label className="form-check-label" htmlFor={`flexRadioDefault`}>
               {answerD}
