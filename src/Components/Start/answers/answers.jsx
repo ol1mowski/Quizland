@@ -37,20 +37,20 @@ const Answers = (props) => {
         setCurrentIndex((prev) => prev + 1);
       }
       const radioInputs = document.querySelectorAll('.form-check input[type="radio"]');
-    
+
       // Odznacz wszystkie zaznaczone inputy
       radioInputs.forEach((input) => {
         input.checked = false;
       });
-      
+
       if (odp === correctOdp) {
         dispatch(increment());
       }
-    
+
       console.log(counter);
-      
+
     };
-    
+
 
     const buttonElement = button.current;
 
@@ -71,7 +71,7 @@ const Answers = (props) => {
   const [answerB, setAnswerB] = useState('');
   const [answerC, setAnswerC] = useState('');
   const [answerD, setAnswerD] = useState('');
-  
+
   useEffect(() => {
     const response = props.resp;
     if (response && response.length > 0 && response[0].category) {
@@ -83,10 +83,10 @@ const Answers = (props) => {
       const other = response[currentIndex].incorrect_answers;
       tab.push(...other);
       setCurrentAnswers(tab);
-  
+
       // Przy każdej zmianie odpowiedzi, generuj nowe unikalne indeksy
       const uniqueRandomIndices = getRandomUniqueIndices(4, 4);
-  
+
       // Przypisz odpowiedzi do odpowiednich zmiennych za pomocą setState
       setAnswerA(tab[uniqueRandomIndices[0]]);
       setAnswerB(tab[uniqueRandomIndices[1]]);
@@ -98,7 +98,7 @@ const Answers = (props) => {
   }, [props.resp, currentQuestion, currentIndex, correctOdp]);
 
   console.log('poprawna: ', correctOdp);
-  
+
 
 
 
@@ -106,17 +106,17 @@ const Answers = (props) => {
     if (count > max) {
       throw new Error('Count cannot be greater than max');
     }
-  
+
     const uniqueIndices = new Set();
-  
+
     while (uniqueIndices.size < count) {
       const newIndex = Math.floor(Math.random() * max);
       uniqueIndices.add(newIndex);
     }
-  
+
     return Array.from(uniqueIndices);
   }
-  
+
 
   const inpSelect = (e) => {
     setOdp(e.target.value)
@@ -127,84 +127,88 @@ const Answers = (props) => {
   return (
     <>
       <h1>Category: {currentCategory}</h1>
-      <div className={style.question}>
+      <h2 className={style.question}>
         {currentQuestion}
-      </div>
-      {answerA !== undefined ? <div className={style.answers}>
-        <div className="form-check">
-          <input
-            onChange={inpSelect}
-            value={answerA}
-            className="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-            id={`flexRadioDefault${answerA}`} // unikalny identyfikator dla każdego inputa
-
-          />
-          <label className="form-check-label" htmlFor={`flexRadioDefault`}>
-            {answerA}
-          </label>
-        </div>
-      </div> : null}
-      {answerB !== undefined ? <div className={style.answers}>
-        <div className="form-check">
-          <input
-            onChange={inpSelect}
-            value={answerB}
-            className="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-            id={`flexRadioDefault${answerB}`} // unikalny identyfikator dla każdego inputa
-
-          />
-          <label className="form-check-label" htmlFor={`flexRadioDefault`}>
-            {answerB}
-          </label>
-        </div>
-      </div> : null}
-      {answerC !== undefined ? <div className={style.answers}>
-        <div className="form-check">
-          <input
-            onChange={inpSelect}
-            value={answerC}
-            className="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-            id={`flexRadioDefault${answerC}`} // unikalny identyfikator dla każdego inputa
-
-          />
-          <label className="form-check-label" htmlFor={`flexRadioDefault`}>
-            {answerC}
-          </label>
-        </div>
-      </div> : null}
-      {answerD !== undefined ?
-        <div className={style.answers}>
+      </h2>
+      <h3>
+        Question number: { currentIndex+1 } / 10
+      </h3>
+      <div className={style.answerContainer}>
+        {answerA !== undefined ? <div className={style.answers}>
           <div className="form-check">
             <input
               onChange={inpSelect}
-              value={answerD}
+              value={answerA}
               className="form-check-input"
               type="radio"
               name="flexRadioDefault"
-              id={`flexRadioDefault${answerD}`} // unikalny identyfikator dla każdego inputa
+              id={`flexRadioDefault${answerA}`} // unikalny identyfikator dla każdego inputa
 
             />
             <label className="form-check-label" htmlFor={`flexRadioDefault`}>
-              {answerD}
+              {answerA}
             </label>
           </div>
         </div> : null}
-      <button
-        style={{
-          marginTop: '2vw',
-        }}
-        type="button"
-        className="btn btn-primary"
-        ref={button}
-      >
-        Submit
-      </button>
+        {answerB !== undefined ? <div className={style.answers}>
+          <div className="form-check">
+            <input
+              onChange={inpSelect}
+              value={answerB}
+              className="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id={`flexRadioDefault${answerB}`} // unikalny identyfikator dla każdego inputa
+
+            />
+            <label className="form-check-label" htmlFor={`flexRadioDefault`}>
+              {answerB}
+            </label>
+          </div>
+        </div> : null}
+        {answerC !== undefined ? <div className={style.answers}>
+          <div className="form-check">
+            <input
+              onChange={inpSelect}
+              value={answerC}
+              className="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id={`flexRadioDefault${answerC}`} // unikalny identyfikator dla każdego inputa
+
+            />
+            <label className="form-check-label" htmlFor={`flexRadioDefault`}>
+              {answerC}
+            </label>
+          </div>
+        </div> : null}
+        {answerD !== undefined ?
+          <div className={style.answers}>
+            <div className="form-check">
+              <input
+                onChange={inpSelect}
+                value={answerD}
+                className="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id={`flexRadioDefault${answerD}`} // unikalny identyfikator dla każdego inputa
+
+              />
+              <label className="form-check-label" htmlFor={`flexRadioDefault`}>
+                {answerD}
+              </label>
+            </div>
+          </div> : null}
+        <button
+        id={style.btn}
+          type="button"
+          className="btn btn-primary"
+          ref={button}
+        >
+          Submit
+        </button>
+      </div>
+
     </>
   );
 };

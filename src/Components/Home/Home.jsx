@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <>
             <div className={style.container}>
-                <h1>
+                <h1 className={style.h1}>
                     Welcom in my Quiz aplication !
                 </h1>
                 <Link className={style.rest} to={'/game'}>

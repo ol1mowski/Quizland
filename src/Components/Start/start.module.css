@@ -1,8 +1,10 @@
 .container {
-    background: linear-gradient(pink, white);
+    background: url('../../assets/background.jpg');
     color: #000;
-    font-size: 3rem;
+    font-size: 1rem;
     display: flex;
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
