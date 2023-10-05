@@ -10,7 +10,7 @@ const Summary = () => {
         <>
         <div className={style.container}>
            Your results: {counter} / 10
-            <a className={style.a} href='/Quizland/game'>
+            <a className={style.a} href='https://ol1mowski.github.io/Quizland'>
             Let's play agin !
 
             </a>
