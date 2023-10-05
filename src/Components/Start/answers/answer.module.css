@@ -1,0 +1,16 @@
+.answers {
+    height: 20%;
+    font-size: 2rem;
+}
+.question {
+    margin-top: 5%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.container {
+    margin-top: 5%;
+}

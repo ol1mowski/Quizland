@@ -1,0 +1,11 @@
+.container {
+    background: linear-gradient(pink, white);
+    color: #000;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    padding: 5vw;
+    gap: 5%;
+}

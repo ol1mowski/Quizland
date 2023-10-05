@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(pink, white);
+    color: #ecabdc;
+    font-size: 3rem;
+    flex-direction: column;
+}
+
+.button {
+    margin-top: 5vh;
+    width: 15vw;
+    aspect-ratio: 8/2;
+    background: #fff;
+    border-radius: 1rem;
+    border: none;
+    font-size: 2rem;
+    color: pink;
+    cursor: pointer;
+    transition: transform 0.7s;
+}
+
+.button:hover {
+    transform: translateY(-2vh);
+    box-shadow: 15px 15px 5px pink;
+}
