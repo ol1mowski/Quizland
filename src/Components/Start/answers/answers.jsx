@@ -2,8 +2,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './answer.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { increment } from '../../../store/counterState';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { increment } from '../../../store/counterState';
 
 const Answers = (props) => {
   // local state 
@@ -19,8 +19,8 @@ const Answers = (props) => {
   const navigate = useNavigate()
 
 
-  const counter = useSelector((state) => state.counter.counter)
-  const dispatch = useDispatch()
+  // const counter = useSelector((state) => state.counter.counter)
+  // const dispatch = useDispatch()
 
   useEffect(() => {
     const indexIncrement = () => {
