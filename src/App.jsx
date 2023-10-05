@@ -8,9 +8,9 @@ import Summary from './Components/Summary/Summary';
 
 const router = createBrowserRouter([
   { path: '/Quizland', element: <Home />, errorElement: <ErrorPage />, children: []},
-  { path: '/game', element: <Game />},
-  { path: '/start', element: <Start />},
-  { path: '/summary', element: <Summary />},
+  { path: '/Quizland/game', element: <Game />},
+  { path: '/Quizland/start', element: <Start />},
+  { path: '/Quizland/summary', element: <Summary />},
 ])
 
 

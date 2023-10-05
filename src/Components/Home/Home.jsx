@@ -8,7 +8,7 @@ const Home = () => {
                 <h1 className={style.h1}>
                     Welcom in my Quiz aplication !
                 </h1>
-                <Link className={style.rest} to={'/game'}>
+                <Link className={style.rest} to={'/Quizland/game'}>
                     <button className={style.button}>
                         Let's start
                     </button>

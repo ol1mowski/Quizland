@@ -67,7 +67,7 @@ const Game = () => {
                     </select>
                 </div>
 
-                <Link className={style.a} to={'/start'}>
+                <Link className={style.a} to={'/Quizland/start'}>
                     <button className={style.button} ref={button}>Start</button>
                 </Link>
             </div>

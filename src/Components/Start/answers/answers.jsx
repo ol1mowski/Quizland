@@ -31,7 +31,7 @@ const Answers = (props) => {
         button.current.innerText = 'Finish';
       }
       if (currentIndex === 9) {
-        navigate('/summary');
+        navigate('/Quizland/summary');
       }
       else if (currentIndex < props.resp.length - 1) { // Dodane sprawdzenie, czy currentIndex jest mniejszy niż długość tablicy props.resp
         setCurrentIndex((prev) => prev + 1);

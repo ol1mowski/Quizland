@@ -11,7 +11,7 @@ const ErrorPage = () => {
                 <h1 className={style.h1}>
                     404 Page no Found
                 </h1>
-                <Link className={style.a} to={'/'}>
+                <Link className={style.a} to={'/Quizland'}>
                     Go To Home
                 </Link>
                 </div>
