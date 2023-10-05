@@ -7,7 +7,7 @@ import Start from './Components/Start/Start';
 import Summary from './Components/Summary/Summary';
 
 const router = createBrowserRouter([
-  { path: '/', element: <Home />, errorElement: <ErrorPage />, children: []},
+  { path: '/Quizland', element: <Home />, errorElement: <ErrorPage />, children: []},
   { path: '/game', element: <Game />},
   { path: '/start', element: <Start />},
   { path: '/summary', element: <Summary />},
