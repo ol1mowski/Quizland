@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/quizland/static/css/main.f7fe467f.css",
-    "main.js": "/quizland/static/js/main.26a89cef.js",
-    "static/js/787.83904489.chunk.js": "/quizland/static/js/787.83904489.chunk.js",
-    "static/media/background.jpg": "/quizland/static/media/background.c6757f7019f2fabd9d2e.jpg",
-    "index.html": "/quizland/index.html",
-    "main.f7fe467f.css.map": "/quizland/static/css/main.f7fe467f.css.map",
-    "main.26a89cef.js.map": "/quizland/static/js/main.26a89cef.js.map",
-    "787.83904489.chunk.js.map": "/quizland/static/js/787.83904489.chunk.js.map"
+    "main.css": "/Quizland/static/css/main.96e4c476.css",
+    "main.js": "/Quizland/static/js/main.a80ea78a.js",
+    "static/js/787.83904489.chunk.js": "/Quizland/static/js/787.83904489.chunk.js",
+    "static/media/background.jpg": "/Quizland/static/media/background.c6757f7019f2fabd9d2e.jpg",
+    "index.html": "/Quizland/index.html",
+    "main.96e4c476.css.map": "/Quizland/static/css/main.96e4c476.css.map",
+    "main.a80ea78a.js.map": "/Quizland/static/js/main.a80ea78a.js.map",
+    "787.83904489.chunk.js.map": "/Quizland/static/js/787.83904489.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7fe467f.css",
-    "static/js/main.26a89cef.js"
+    "static/css/main.96e4c476.css",
+    "static/js/main.a80ea78a.js"
   ]
 }
