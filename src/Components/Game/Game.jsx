@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import style from './game.module.css';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { updateUrl } from '../../store';
+import React, { useEffect, useRef } from 'react';
+
 import { Link } from 'react-router-dom';
+import { updateUrl } from '../../store/urlState';
 
 const Game = () => {
 
@@ -11,8 +12,6 @@ const Game = () => {
     const level = useRef(null);
     const type = useRef(null);
     const button = useRef(null);
-
-    const [link, setLink] = useState('');
 
     const dispatch = useDispatch();
 
@@ -26,7 +25,6 @@ const Game = () => {
             const t = type.current.value;
 
             dispatch(updateUrl(`https://opentdb.com/api.php?amount=10&category=${c}&difficulty=${l}&type=${t}`))
-            setLink(`https://opentdb.com/api.php?amount=10&category=${c}&difficulty=${l}&type=${t}`)
 
 
 

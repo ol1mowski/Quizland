@@ -1,22 +1,12 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import urlSlice from "./urlState";
+import counterSlice from "./counterState";
 
-const initialState = { url: '' };
-
-const urlSlice = createSlice({
-    name: 'url',
-    initialState: initialState,
-    reducers: {
-        updateUrl(state, action) { // You need to accept an action parameter here
-            state.url = action.payload; // Update the url using action.payload
-        }
-    }
-});
-
-export const { updateUrl } = urlSlice.actions; // Destructure the action creator
 
 const store = configureStore({
     reducer: {
-        url: urlSlice.reducer
+        url: urlSlice.reducer,
+        counter: counterSlice.reducer,
     }
 });
 

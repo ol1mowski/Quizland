@@ -9,9 +9,6 @@ const Start = () => {
 
     const url = useSelector((state) => state.url.url)
 
-    const [category, setCategory] = useState('')
-    const [question, setquestion] = useState('')
-    const [answers, setAnswers] = useState([])
     const [response, setResponse] = useState([])
     useEffect(() => {
         fetch(url).then((res) => res.json()).then((res) => {
@@ -23,7 +20,7 @@ const Start = () => {
 
 
         }).catch((err) => console.log(err));
-    }, [])
+    }, [url])
 
     // setquestion(res.results.question)
     // setCategory(res.results.category)
